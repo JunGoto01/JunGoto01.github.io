@@ -2,7 +2,8 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --accent-color: #2c3e50; /* Dark Slate Blue */
+    --accent-color: #2c3e50;
+    /* Dark Slate Blue */
     --link-color: #2980b9;
     --link-hover-color: #3498db;
     --nav-bg: #f8f9fa;
@@ -85,7 +86,9 @@ main {
     padding-bottom: 4rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--accent-color);
     margin-bottom: 1rem;
     line-height: 1.3;
@@ -166,8 +169,39 @@ li {
     background: #f9f9f9;
     padding: 10px;
     border-left: 3px solid var(--border-color);
-    display: none; /* Hidden by default, maybe toggle later or show always? Let's show for now but keep it subtle */
-    display: block; 
+    margin-top: 5px;
+}
+
+details {
+    margin-top: 0.5rem;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--link-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    user-select: none;
+    list-style: none;
+    /* Hide default triangle in some browsers */
+}
+
+summary::-webkit-details-marker {
+    display: none;
+    /* Hide default triangle in Chrome/Safari */
+}
+
+summary::after {
+    content: " [+]";
+    font-size: 0.8em;
+}
+
+details[open] summary::after {
+    content: " [-]";
+}
+
+summary:hover {
+    text-decoration: underline;
 }
 
 .contact-info {
@@ -193,13 +227,13 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .nav-links {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
