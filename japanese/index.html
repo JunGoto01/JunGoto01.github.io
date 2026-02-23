@@ -11,7 +11,150 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        body { font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+        }
+
+        .book-section {
+            margin-bottom: 4rem;
+        }
+
+        .book-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-image {
+            position: relative;
+        }
+
+        .book-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover .book-image img {
+            transform: scale(1.02);
+        }
+
+        .book-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .book-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: #e2e8f0;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        .meta-tag.highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            font-weight: 500;
+        }
+
+        .book-description {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .contribution-box {
+            background: white;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .contribution-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contribution-text {
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .page-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .page-intro p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .book-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .book-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .book-meta {
+                justify-content: center;
+            }
+
+            .contribution-box {
+                border-left: none;
+                border-top: 4px solid #3b82f6;
+                border-radius: 0 0 12px 12px;
+            }
+        }
     </style>
 </head>
 
@@ -33,30 +176,78 @@
     </header>
 
     <main class="container">
-        <h1>研究・教育の紹介（日本語）</h1>
+        <section class="page-intro">
+            <h1>研究・教育の紹介</h1>
+            <p>
+                開発経済学・政治経済学を専門とし、制度と経済発展の関係、
+                テキストデータを用いた実証分析などに取り組んでいます。
+            </p>
+        </section>
 
-        <section>
+        <section class="book-section">
             <h2>著書（分担執筆）</h2>
-            
-            <article style="margin-bottom: 2rem;">
-                <h3>実証から学ぶ 開発経済学</h3>
-                <p><strong>編者：</strong>高橋和志・樋口裕城・牧野百恵</p>
-                <p><strong>出版社：</strong>有斐閣ブックス</p>
-                <p><strong>担当章：</strong>第10章「制度と経済発展」</p>
-                <p>
-                    途上国の経済発展における制度の役割について、最新の実証研究を交えて解説しています。
-                </p>
-            </article>
 
-            <article style="margin-bottom: 2rem;">
-                <h3>次世代の実証経済学</h3>
-                <p><strong>編著者：</strong>大塚啓二郎・黒崎卓・澤田康幸・園部哲史</p>
-                <p><strong>出版社：</strong>日本評論社</p>
-                <p><strong>担当：</strong>第2章（園部哲史・黒崎卓）へのコメント</p>
-                <p>
-                    実証経済学の最先端と今後の方向性について、本論・コメント・リプライ形式で議論しています。
-                </p>
-            </article>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="images/development_economics.png" alt="実証から学ぶ 開発経済学">
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">実証から学ぶ 開発経済学</h3>
+                    <div class="book-meta">
+                        <span class="meta-tag">有斐閣ブックス</span>
+                        <span class="meta-tag">高橋和志・樋口裕城・牧野百恵 編</span>
+                    </div>
+                    <p class="book-description">
+                        途上国の経済発展を実証研究の視点から解き明かす入門書。
+                        貧困、教育、健康、農業、金融など開発経済学の主要テーマについて、
+                        最新のエビデンスに基づきながらわかりやすく解説しています。
+                        ランダム化比較試験（RCT）や自然実験など、現代の開発経済学で用いられる
+                        分析手法も丁寧に紹介されており、実証研究の面白さを体感できる一冊です。
+                    </p>
+                    <div class="contribution-box">
+                        <div class="contribution-label">担当章</div>
+                        <p class="contribution-text">
+                            <strong>第10章「制度と経済発展」</strong><br>
+                            なぜ国によって経済発展の程度が異なるのか？この問いに対し、
+                            法制度、所有権、民主主義といった「制度」の役割に着目して解説しています。
+                            植民地時代の歴史が現代の経済パフォーマンスに与える影響など、
+                            興味深い実証研究を紹介しながら、制度と発展の因果関係を考察します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="images/next_gen_economics.png" alt="次世代の実証経済学">
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">次世代の実証経済学</h3>
+                    <div class="book-meta">
+                        <span class="meta-tag">日本評論社</span>
+                        <span class="meta-tag">大塚啓二郎 編著</span>
+                        <span class="meta-tag highlight">最先端をめぐる白熱の議論</span>
+                    </div>
+                    <p class="book-description">
+                        日本の経済学をリードする研究者たちが、実証経済学の最先端と今後の方向性を
+                        「本論・コメント・リプライ」形式で熱く議論する一冊。
+                        因果推論の発展、ビッグデータの活用、機械学習との融合など、
+                        実証経済学が直面する新たな挑戦と可能性について、
+                        多角的な視点から検討しています。
+                    </p>
+                    <div class="contribution-box">
+                        <div class="contribution-label">担当</div>
+                        <p class="contribution-text">
+                            <strong>第2章（園部哲史・黒崎卓）へのコメント</strong><br>
+                            開発経済学における実証研究の方法論と今後の展望について、
+                            コメンテーターとして議論に参加しています。
+                            フィールド実験の意義と限界、外的妥当性の問題、
+                            政策への示唆など、実証研究の実践的な課題を掘り下げています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
     </main>
