@@ -114,14 +114,23 @@
     </footer>
 
     <script>
-        fetch('assets/images/profile-2026.b64', { cache: 'no-store' })
-            .then(response => {
-                if (!response.ok) throw new Error(`Profile image data returned ${response.status}`);
+        const profileImageParts = [
+            'assets/images/profile-2026-1.b64',
+            'assets/images/profile-2026-2.b64',
+            'assets/images/profile-2026-3.b64',
+            'assets/images/profile-2026-4.b64'
+        ];
+
+        Promise.all(profileImageParts.map(path =>
+            fetch(path, { cache: 'no-store' }).then(response => {
+                if (!response.ok) throw new Error(`${path} returned ${response.status}`);
                 return response.text();
             })
-            .then(base64 => {
+        ))
+            .then(parts => {
                 const image = document.getElementById('profile-photo');
-                image.src = `data:image/jpeg;base64,${base64.replace(/\s/g, '')}`;
+                const base64 = parts.join('').replace(/\s/g, '');
+                image.src = `data:image/jpeg;base64,${base64}`;
                 image.hidden = false;
             })
             .catch(error => {
