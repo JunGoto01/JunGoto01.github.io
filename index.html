@@ -37,6 +37,10 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
+        .profile-photo[hidden] {
+            visibility: hidden;
+        }
+
         @media (max-width: 600px) {
             .hero-profile {
                 flex-direction: column-reverse;
@@ -79,7 +83,7 @@
                 <h1>Jun Goto</h1>
                 <p class="subtitle">Associate Professor<br>National Graduate Institute for Policy Studies (GRIPS)</p>
             </div>
-            <img class="profile-photo" src="assets/images/profile.jpg" alt="Portrait of Jun Goto" width="220" height="220">
+            <img id="profile-photo" class="profile-photo" alt="Portrait of Jun Goto" width="220" height="220" hidden>
         </section>
 
         <section class="about">
@@ -108,6 +112,22 @@
             <p>&copy; 2026 Jun Goto. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        fetch('assets/images/profile-2026.b64', { cache: 'no-store' })
+            .then(response => {
+                if (!response.ok) throw new Error(`Profile image data returned ${response.status}`);
+                return response.text();
+            })
+            .then(base64 => {
+                const image = document.getElementById('profile-photo');
+                image.src = `data:image/jpeg;base64,${base64.replace(/\s/g, '')}`;
+                image.hidden = false;
+            })
+            .catch(error => {
+                console.error('Unable to load profile image:', error);
+            });
+    </script>
 
 </body>
 
