@@ -11,6 +11,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2.5rem 0 3rem;
+        }
+
+        .hero-profile .hero-copy {
+            text-align: left;
+        }
+
+        .hero-profile .subtitle {
+            margin-bottom: 0;
+        }
+
+        .profile-photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            object-position: center 28%;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (max-width: 600px) {
+            .hero-profile {
+                flex-direction: column-reverse;
+                gap: 1.5rem;
+                padding-top: 1.5rem;
+            }
+
+            .hero-profile .hero-copy {
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -31,9 +74,12 @@
     </header>
 
     <main class="container">
-        <section class="hero">
-            <h1>Jun Goto</h1>
-            <p class="subtitle">Associate Professor<br>National Graduate Institute for Policy Studies (GRIPS)</p>
+        <section class="hero hero-profile">
+            <div class="hero-copy">
+                <h1>Jun Goto</h1>
+                <p class="subtitle">Associate Professor<br>National Graduate Institute for Policy Studies (GRIPS)</p>
+            </div>
+            <img class="profile-photo" src="assets/images/profile.jpg" alt="Portrait of Jun Goto" width="220" height="220">
         </section>
 
         <section class="about">
@@ -59,7 +105,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jun Goto. All rights reserved.</p>
+            <p>&copy; 2026 Jun Goto. All rights reserved.</p>
         </div>
     </footer>
 
